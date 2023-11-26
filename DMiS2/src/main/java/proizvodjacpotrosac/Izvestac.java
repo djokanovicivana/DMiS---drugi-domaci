@@ -8,6 +8,33 @@ package proizvodjacpotrosac;
  *
  * @author Ivana
  */
-public class Izvestac {
-    
+public class Izvestac extends Thread {
+
+    private static int statId = 0;
+    private int id = ++statId;
+    Skladiste skladiste;
+
+    public Izvestac(Skladiste skladiste) {
+        this.skladiste = skladiste;
+       // start();
+    }
+
+    public Skladiste getSkladiste() {
+        return skladiste;
+    }
+
+    @Override
+    public void run() {
+        try {
+                while (!interrupted()) {
+                    System.out.println("IZVESTAJ\n");
+                    skladiste.izvestavaj();
+                    Thread.sleep(10000);
+                     }
+        } catch (InterruptedException ex) {
+            System.out.println("Izvestac " + id + " je zavrsio sa radom");
+        }
+    }
 }
+
+

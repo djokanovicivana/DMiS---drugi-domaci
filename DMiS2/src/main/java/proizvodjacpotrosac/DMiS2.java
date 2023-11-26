@@ -11,6 +11,23 @@ package proizvodjacpotrosac;
 public class DMiS2 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+         Skladiste skladiste = new Skladiste(5);
+
+               for(int i = 0; i<10;i++)
+        {
+            Proizvodjac proizvodjac = new Proizvodjac(skladiste,1000,3000);
+           // proizvodjac.start();
+        }
+        for(int i = 0; i<10;i++)
+        {
+            Potrosac potrosac = new Potrosac(skladiste,3000,10000);
+            //potrosac.start();
+        }
+        Izvestac izvestac = new Izvestac(skladiste);
+       
+        izvestac.start();
+        //ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
+        //exec.scheduleAtFixedRate(izvestac, 2, 2, TimeUnit.SECONDS);
+        
     }
-}
+    }
