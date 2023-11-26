@@ -26,8 +26,7 @@ public class DMiS2 {
         Izvestac izvestac = new Izvestac(skladiste);
        
         izvestac.start();
-        //ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
-        //exec.scheduleAtFixedRate(izvestac, 2, 2, TimeUnit.SECONDS);
+       
         
     }
     }
